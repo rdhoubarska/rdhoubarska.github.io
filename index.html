@@ -3,8 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RD Houbařská — Rodinné domy v Brně</title>
-  <meta name="description" content="16 moderních řadových rodinných domů v klidné části Brna-Líšně. Dvou a třípodlažní domy obklopené přírodou s plnou občanskou vybaveností." />
+
+  <!-- SEO: Title a description -->
+  <title>RD Houbařská | Rodinné domy Brno-Líšeň | Novostavby 5+kk</title>
+  <meta name="description" content="Prodej rodinných domů v Brně-Líšni. Trojpodlažní novostavby 5+kk, užitná plocha 192 m², pozemky až 548 m². Moderní architektura, vlastní zahrada, garáž. RD Houbařská s.r.o." />
+  <meta name="keywords" content="rodinné domy Brno, novostavby Brno Líšeň, rodinný dům na prodej Brno, trojpodlažní dům Brno, novostavba 5kk Brno, RD Houbařská" />
+  <meta name="author" content="RD Houbařská s.r.o." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://rd-houbarska.cz/" />
+
+  <!-- Open Graph (sdílení na FB, WhatsApp, LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rd-houbarska.cz/" />
+  <meta property="og:title" content="RD Houbařská | Rodinné domy Brno-Líšeň" />
+  <meta property="og:description" content="Trojpodlažní novostavby 5+kk v Brně-Líšni. Užitná plocha 192 m², pozemky až 548 m². Vlastní zahrada, garáž, příroda za dveřmi." />
+  <meta property="og:image" content="https://rd-houbarska.cz/foto/og-image.jpg" />
+  <meta property="og:locale" content="cs_CZ" />
+  <meta property="og:site_name" content="RD Houbařská" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="RD Houbařská | Rodinné domy Brno-Líšeň" />
+  <meta name="twitter:description" content="Trojpodlažní novostavby 5+kk v Brně-Líšni. Užitná plocha 192 m², pozemky až 548 m²." />
+  <meta name="twitter:image" content="https://rd-houbarska.cz/foto/og-image.jpg" />
+
+  <!-- Strukturovaná data (schema.org) — Google zobrazí adresu a telefon přímo ve výsledcích -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RealEstateAgent",
+    "name": "RD Houbařská s.r.o.",
+    "url": "https://rd-houbarska.cz",
+    "logo": "https://rd-houbarska.cz/logo.png",
+    "description": "Prodej moderních rodinných domů v Brně-Líšni. Trojpodlažní novostavby 5+kk s užitnou plochou 192 m² na pozemcích až 548 m².",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Houbařská",
+      "addressLocality": "Brno",
+      "addressRegion": "Jihomoravský kraj",
+      "postalCode": "621 00",
+      "addressCountry": "CZ"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "49.1869",
+      "longitude": "16.6618"
+    },
+    "telephone": "+420704610799",
+    "email": "geletka@automediabm.cz",
+    "vatID": "05633605",
+    "sameAs": [
+      "https://www.instagram.com/rd_houbarska/"
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    }
+  }
+  </script>
+
+  <!-- Strukturovaná data pro nemovitost -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Residence",
+    "name": "Rodinné domy RD Houbařská",
+    "description": "Trojpodlažní rodinné domy 5+kk s užitnou plochou 192 m² v Brně-Líšni na ulici Houbařská.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Houbařská",
+      "addressLocality": "Brno-Líšeň",
+      "addressRegion": "Jihomoravský kraj",
+      "addressCountry": "CZ"
+    },
+    "numberOfRooms": "5",
+    "floorSize": {
+      "@type": "QuantitativeValue",
+      "value": "192",
+      "unitCode": "MTK"
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -748,12 +830,18 @@
       }
 
       .hero-stats {
-        gap: 20px;
-        flex-wrap: wrap;
+        gap: 16px;
+        flex-wrap: nowrap;
       }
 
-      .stat-num { font-size: 32px; }
-      .stat-label { font-size: 10px; }
+      .stat-num {
+        font-size: 24px;
+        white-space: nowrap;
+      }
+      .stat-label {
+        font-size: 9px;
+        white-space: nowrap;
+      }
 
       .section { padding: 48px 16px; }
 
@@ -768,16 +856,16 @@
 
       .projekt-image { aspect-ratio: 16/9; }
 
-      /* Nabídka — 2 sloupce na mobilu */
-      #nabidka > div[style*="grid"] {
+      /* Nabídka — přesně 2 sloupce */
+      #domy-grid {
         grid-template-columns: 1fr 1fr !important;
         gap: 8px !important;
       }
 
-      .dum-card { padding: 14px; }
-      .dum-name { font-size: 18px; }
-      .dum-specs { font-size: 11px; }
-      .dum-tag { font-size: 8px; padding: 3px 7px; }
+      .dum-card { padding: 12px; }
+      .dum-name { font-size: 15px; }
+      .dum-specs { font-size: 11px; line-height: 1.5; }
+      .dum-tag { font-size: 8px; padding: 3px 7px; margin-bottom: 8px; }
 
       /* Lišta pod nabídkou */
       #nabidka > div[style*="justify-content"] {
@@ -995,7 +1083,7 @@
     <h2 class="section-title section-title-light">Vyberte si<br>svůj dům</h2>
     <p style="font-size:14px; color:rgba(248,246,241,0.35); margin-bottom:40px; letter-spacing:0.5px;">Trojpodlažní · 5+kk · 192 m² · Pozemek 220–548 m²</p>
 
-    <div style="display:grid; grid-template-columns: repeat(4,1fr); gap:12px;">
+    <div id="domy-grid" style="display:grid; grid-template-columns: repeat(4,1fr); gap:12px;">
 
       <!-- IO 01 -->
       <div class="dum-card" style="opacity:0.4;">
