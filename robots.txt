@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rd-houbarska.cz/sitemap.xml
