@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RD Houbařská — Rodinné domy v Brně</title>
+  <meta name="description" content="16 moderních řadových rodinných domů v klidné části Brna-Líšně. Dvou a třípodlažní domy obklopené přírodou s plnou občanskou vybaveností." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --yellow: #F5C800;
+      --black: #111111;
+      --white: #F8F6F1;
+      --gray-light: #E8E5DE;
+      --gray-mid: #C8C4BB;
+      --muted: #888880;
+      --text: #1A1A1A;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVIGACE ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--black);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 48px;
+      height: 64px;
+      border-bottom: 1px solid rgba(245,200,0,0.15);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo-icon {
+      width: 38px;
+      height: 38px;
+      background: var(--yellow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 13px;
+      color: var(--black);
+      letter-spacing: 0.5px;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-text {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px;
+      color: var(--white);
+      letter-spacing: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 11px;
+      color: rgba(248,246,241,0.5);
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--yellow); }
+
+    .nav-cta {
+      background: var(--yellow) !important;
+      color: var(--black) !important;
+      padding: 8px 20px;
+      border-radius: 2px;
+      font-weight: 500 !important;
+    }
+
+    .nav-cta:hover { background: #e0b600 !important; }
+
+    /* ─── HERO ─── */
+    #uvod {
+      min-height: 100vh;
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(245,200,0,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,200,0,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(245,200,0,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--yellow);
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 10vw, 120px);
+      line-height: 0.92;
+      color: var(--white);
+      letter-spacing: 2px;
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    .hero-title .accent { color: var(--yellow); }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: rgba(248,246,241,0.5);
+      font-weight: 300;
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      position: relative;
+      margin-bottom: 80px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--yellow);
+      color: var(--black);
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: #e0b600; transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(248,246,241,0.6);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(248,246,241,0.2);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-secondary:hover { color: var(--white); border-color: rgba(248,246,241,0.5); }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(248,246,241,0.08);
+      position: relative;
+    }
+
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      color: var(--yellow);
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: rgba(248,246,241,0.35);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .yellow-bar { height: 4px; background: var(--yellow); }
+
+    /* ─── SEKCE ─── */
+    .section { padding: 100px 48px; }
+
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--yellow);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--yellow);
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(40px, 5vw, 64px);
+      line-height: 1;
+      color: var(--black);
+      letter-spacing: 1px;
+      margin-bottom: 40px;
+    }
+
+    .section-title-light {
+      color: var(--white);
+    }
+
+    /* ─── O PROJEKTU ─── */
+    #o-projektu {
+      background: var(--white);
+    }
+
+    .projekt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .projekt-text {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .feature-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--yellow);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .projekt-image {
+      background: var(--gray-light);
+      border-radius: 4px;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .projekt-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .img-placeholder-text {
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ─── NABÍDKA ─── */
+    #nabidka {
+      background: var(--black);
+    }
+
+    .domy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .dum-card {
+      background: rgba(248,246,241,0.04);
+      border: 1px solid rgba(248,246,241,0.08);
+      border-radius: 4px;
+      padding: 28px;
+      transition: border-color 0.3s, background 0.3s;
+      cursor: default;
+    }
+
+    .dum-card:hover {
+      border-color: rgba(245,200,0,0.3);
+      background: rgba(245,200,0,0.03);
+    }
+
+    .dum-tag {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--black);
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .dum-tag-reserved {
+      background: rgba(248,246,241,0.1);
+      color: rgba(248,246,241,0.4);
+    }
+
+    .dum-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 32px;
+      color: var(--white);
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .dum-specs {
+      font-size: 13px;
+      color: rgba(248,246,241,0.35);
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .dum-divider {
+      height: 1px;
+      background: rgba(248,246,241,0.08);
+      margin-bottom: 16px;
+    }
+
+    .dum-price {
+      font-size: 14px;
+      color: var(--yellow);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── GALERIE ─── */
+    #galerie {
+      background: var(--white);
+    }
+
+    .foto-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 260px 260px;
+      gap: 12px;
+    }
+
+    .foto-item {
+      background: var(--gray-light);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .foto-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s;
+    }
+
+    .foto-item:hover img { transform: scale(1.04); }
+
+    .foto-item-main { grid-row: 1 / 3; }
+
+    .foto-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    /* ─── LOKALITA ─── */
+    #lokalita {
+      background: var(--gray-light);
+    }
+
+    .lokalita-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .lokalita-text {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      font-size: 12px;
+      padding: 8px 16px;
+      border: 1px solid var(--gray-mid);
+      border-radius: 2px;
+      color: var(--text);
+      letter-spacing: 0.5px;
+      background: transparent;
+    }
+
+    .mapa-box {
+      background: #D5D0C0;
+      border-radius: 4px;
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mapa-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .mapa-pin-wrap {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .mapa-pin {
+      width: 24px;
+      height: 24px;
+      background: var(--yellow);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      border: 3px solid var(--black);
+    }
+
+    .mapa-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--black);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: var(--white);
+      padding: 5px 12px;
+      border-radius: 2px;
+    }
+
+    /* ─── KONTAKT ─── */
+    #kontakt {
+      background: var(--black);
+    }
+
+    .kontakt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .kontakt-text {
+      font-size: 15px;
+      color: rgba(248,246,241,0.4);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 40px;
+    }
+
+    .kontakt-info {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .kontakt-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .kontakt-icon {
+      width: 36px;
+      height: 36px;
+      background: rgba(245,200,0,0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .kontakt-icon svg { width: 16px; height: 16px; fill: var(--yellow); }
+
+    .kontakt-detail {
+      font-size: 14px;
+      color: rgba(248,246,241,0.7);
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .form-input,
+    .form-textarea {
+      background: rgba(248,246,241,0.05);
+      border: 1px solid rgba(248,246,241,0.1);
+      border-radius: 2px;
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder { color: rgba(248,246,241,0.25); }
+
+    .form-input:focus,
+    .form-textarea:focus { border-color: rgba(245,200,0,0.4); }
+
+    .form-textarea { resize: vertical; min-height: 120px; }
+
+    .form-btn {
+      background: var(--yellow);
+      color: var(--black);
+      border: none;
+      padding: 16px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-radius: 2px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .form-btn:hover { background: #e0b600; transform: translateY(-1px); }
+
+    .form-note {
+      font-size: 11px;
+      color: rgba(248,246,241,0.2);
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── INSTAGRAM ─── */
+    .instagram-bar {
+      background: rgba(248,246,241,0.04);
+      border-top: 1px solid rgba(248,246,241,0.08);
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .instagram-bar a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: rgba(248,246,241,0.5);
+      font-size: 12px;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+    }
+
+    .instagram-bar a:hover { color: var(--white); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #080808;
+      padding: 24px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(248,246,241,0.05);
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      color: rgba(248,246,241,0.25);
+      letter-spacing: 3px;
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(248,246,241,0.15);
+      letter-spacing: 0.5px;
+    }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── MOBILNÍ ─── */
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+
+      #uvod { padding: 100px 20px 60px; }
+      .hero-stats { gap: 24px; }
+
+      .section { padding: 60px 20px; }
+
+      .projekt-grid,
+      .lokalita-grid,
+      .kontakt-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .domy-grid { grid-template-columns: 1fr; }
+
+      .foto-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+
+      .foto-item-main { grid-row: auto; }
+
+      .instagram-bar,
+      footer { padding: 20px; flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGACE -->
+  <nav>
+    <a href="#uvod" class="nav-logo">
+      <div class="nav-logo-icon">RD</div>
+      <span class="nav-logo-text">Houbařská</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#o-projektu">O projektu</a></li>
+      <li><a href="#nabidka">Nabídka</a></li>
+      <li><a href="#galerie">Galerie</a></li>
+      <li><a href="#lokalita">Lokalita</a></li>
+      <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="uvod">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <p class="hero-eyebrow">Brno · Líšeň · Novostavba</p>
+    <h1 class="hero-title">
+      Rodinné<br>
+      domy<br>
+      <span class="accent">obklopené</span><br>
+      přírodou
+    </h1>
+    <p class="hero-subtitle">
+      16 moderních řadových domů v klidné části Brna na ulici Houbařská.
+      Dvou a třípodlažní domy s plnou občanskou vybaveností.
+    </p>
+    <div class="hero-actions">
+      <a href="#nabidka" class="btn-primary">Prohlédnout nabídku →</a>
+      <a href="#kontakt" class="btn-secondary">Mám zájem</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">16</div>
+        <div class="stat-label">Rodinných domů</div>
+      </div>
+      <div>
+        <div class="stat-num">2–3</div>
+        <div class="stat-label">Nadzemní podlaží</div>
+      </div>
+      <div>
+        <div class="stat-num">Líšeň</div>
+        <div class="stat-label">Brno</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="yellow-bar"></div>
+
+  <!-- O PROJEKTU -->
+  <section id="o-projektu" class="section">
+    <div class="projekt-grid">
+      <div class="fade-up">
+        <p class="section-eyebrow">O projektu</p>
+        <h2 class="section-title">Moderní bydlení<br>v srdci přírody</h2>
+        <p class="projekt-text">
+          V zastoupení investora vznikl projekt 16 rodinných domů v klidné brněnské
+          čtvrti Líšeň na ulici Houbařská. Pěkné prostředí obklopené přírodou,
+          dobrá dostupnost do centra města a plná občanská vybavenost.
+        </p>
+        <div class="features">
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            Klidná lokalita obklopená zelení
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            Výborná dostupnost do centra Brna
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            Plná občanská vybavenost v okolí
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            Moderní architektura — dřevo a beton
+          </div>
+          <div class="feature-item">
+            <div class="feature-dot"></div>
+            Parkovací místo u každého domu
+          </div>
+        </div>
+      </div>
+      <div class="projekt-image fade-up" style="transition-delay: 0.15s;">
+        <!-- SEM VLOŽ FOTO: <img src="foto/projekt.jpg" alt="RD Houbařská exteriér" /> -->
+        <span class="img-placeholder-text">Foto projektu</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- NABÍDKA -->
+  <section id="nabidka" class="section" style="background: var(--black);">
+    <p class="section-eyebrow" style="color: var(--yellow);">Nabídka domů</p>
+    <h2 class="section-title section-title-light">Vyberte<br>svůj dům</h2>
+    <div class="domy-grid">
+      <div class="dum-card fade-up">
+        <div class="dum-tag">Dostupný</div>
+        <div class="dum-name">Typ A</div>
+        <div class="dum-specs">
+          Dvoupodlažní · 4+kk<br>
+          Zastavěná plocha: doplnit m²<br>
+          Zahrada: doplnit m²
+        </div>
+        <div class="dum-divider"></div>
+        <div class="dum-price">Cena na vyžádání</div>
+      </div>
+      <div class="dum-card fade-up" style="transition-delay: 0.1s;">
+        <div class="dum-tag">Dostupný</div>
+        <div class="dum-name">Typ B</div>
+        <div class="dum-specs">
+          Třípodlažní · 5+kk<br>
+          Zastavěná plocha: doplnit m²<br>
+          Zahrada: doplnit m²
+        </div>
+        <div class="dum-divider"></div>
+        <div class="dum-price">Cena na vyžádání</div>
+      </div>
+      <div class="dum-card fade-up" style="transition-delay: 0.2s; border-color: rgba(245,200,0,0.25);">
+        <div class="dum-tag" style="background: rgba(245,200,0,0.15); color: var(--yellow);">Poslední</div>
+        <div class="dum-name">Typ C</div>
+        <div class="dum-specs">
+          Třípodlažní · 5+kk<br>
+          Zastavěná plocha: doplnit m²<br>
+          Zahrada: doplnit m²
+        </div>
+        <div class="dum-divider"></div>
+        <div class="dum-price">Cena na vyžádání</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section id="galerie" class="section">
+    <p class="section-eyebrow">Galerie</p>
+    <h2 class="section-title">Exteriér<br>& interiér</h2>
+    <div class="foto-grid">
+      <div class="foto-item foto-item-main">
+        <!-- SEM VLOŽ FOTO: <img src="foto/exterior-main.jpg" alt="Exteriér" /> -->
+        <div class="foto-placeholder">Hlavní foto</div>
+      </div>
+      <div class="foto-item">
+        <!-- <img src="foto/interier1.jpg" alt="Interiér" /> -->
+        <div class="foto-placeholder">Interiér</div>
+      </div>
+      <div class="foto-item">
+        <!-- <img src="foto/detail.jpg" alt="Detail" /> -->
+        <div class="foto-placeholder">Detail</div>
+      </div>
+      <div class="foto-item">
+        <!-- <img src="foto/render.jpg" alt="Render" /> -->
+        <div class="foto-placeholder">Render</div>
+      </div>
+      <div class="foto-item">
+        <!-- <img src="foto/letecky.jpg" alt="Letecký záběr" /> -->
+        <div class="foto-placeholder">Letecky</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOKALITA -->
+  <section id="lokalita" class="section" style="background: var(--gray-light);">
+    <div class="lokalita-grid">
+      <div class="fade-up">
+        <p class="section-eyebrow">Lokalita</p>
+        <h2 class="section-title">Brno–Líšeň</h2>
+        <p class="lokalita-text">
+          Nově vzniklá část ulice Houbařská v klidné a oblíbené brněnské čtvrti Líšeň.
+          Výborná dostupnost MHD i autem, školy, obchody a veškerá občanská vybavenost
+          v bezprostřední blízkosti.
+        </p>
+        <div class="chips">
+          <span class="chip">MHD 5 min</span>
+          <span class="chip">Centrum Brna 15 min</span>
+          <span class="chip">Příroda a zeleň</span>
+          <span class="chip">Škola v okolí</span>
+          <span class="chip">Obchody</span>
+          <span class="chip">Klidná ulice</span>
+        </div>
+      </div>
+      <div class="mapa-box fade-up" style="transition-delay: 0.15s;">
+        <div class="mapa-grid"></div>
+        <div class="mapa-pin-wrap">
+          <div class="mapa-pin"></div>
+          <span class="mapa-label">Houbařská, Brno-Líšeň</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt" class="section">
+    <div class="kontakt-grid">
+      <div class="fade-up">
+        <p class="section-eyebrow">Kontakt</p>
+        <h2 class="section-title section-title-light">Máte zájem?<br>Ozvěte se</h2>
+        <p class="kontakt-text">
+          Rádi vám poskytneme veškeré informace o projektu, dispozicích
+          i podmínkách prodeje. Odpovíme obratem.
+        </p>
+        <div class="kontakt-info">
+          <div class="kontakt-row">
+            <div class="kontakt-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+            <span class="kontakt-detail">info@rd-houbarska.cz</span>
+          </div>
+          <div class="kontakt-row">
+            <div class="kontakt-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+            </div>
+            <span class="kontakt-detail">+420 XXX XXX XXX</span>
+          </div>
+          <div class="kontakt-row">
+            <div class="kontakt-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+            </div>
+            <span class="kontakt-detail">Ul. Houbařská, Brno-Líšeň</span>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up" style="transition-delay: 0.15s;">
+        <form class="form" action="https://formspree.io/f/XXXX" method="POST">
+          <input class="form-input" type="text" name="jmeno" placeholder="Vaše jméno" required />
+          <input class="form-input" type="email" name="email" placeholder="E-mail" required />
+          <input class="form-input" type="tel" name="telefon" placeholder="Telefon" />
+          <textarea class="form-textarea" name="zprava" placeholder="Zpráva (nepovinné)"></textarea>
+          <button class="form-btn" type="submit">Odeslat poptávku →</button>
+          <p class="form-note">Odpovíme do 24 hodin.</p>
+        </form>
+      </div>
+    </div>
+
+    <!-- INSTAGRAM -->
+    <div class="instagram-bar" style="margin-top: 80px;">
+      <a href="https://www.instagram.com/rd_houbarska/" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+        </svg>
+        Sledujte nás na Instagramu @rd_houbarska
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-logo">RD Houbařská</span>
+    <span class="footer-copy">© 2025 RD Houbařská s.r.o. · Brno-Líšeň</span>
+  </footer>
+
+  <script>
+    // Scroll animace
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Aktivní nav link při scrollu
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 100) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.style.color = '';
+        if (link.getAttribute('href') === '#' + current) {
+          link.style.color = 'rgba(245,200,0,0.9)';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
