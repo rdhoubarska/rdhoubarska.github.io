@@ -533,6 +533,25 @@
 
     .foto-item:hover img { transform: scale(1.04); }
 
+    .foto-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      display: flex;
+      align-items: flex-end;
+      padding: 12px;
+      transition: background 0.3s;
+    }
+    .foto-overlay span {
+      color: transparent;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .foto-item:hover .foto-overlay { background: rgba(0,0,0,0.3); }
+    .foto-item:hover .foto-overlay span { color: rgba(248,246,241,0.9); }
+
     .foto-item-main { grid-row: 1 / 3; }
 
     .foto-placeholder {
@@ -1323,23 +1342,63 @@
   <section id="galerie" class="section">
     <p class="section-eyebrow">Galerie</p>
     <h2 class="section-title">Exteriér<br>& interiér</h2>
-    <div class="foto-grid">
-      <div class="foto-item foto-item-main">
+
+    <div style="display:grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 260px 260px 260px; gap:12px;">
+
+      <div class="foto-item" style="grid-row: 1 / 3; cursor:pointer;" onclick="openLightbox(0)">
         <img src="galerie-1.jpg" alt="RD Houbařská letecký pohled" loading="lazy" />
+        <div class="foto-overlay"><span>Letecký pohled</span></div>
       </div>
-      <div class="foto-item">
-        <img src="galerie-2.jpg" alt="RD Houbařská dvorní pohled" loading="lazy" />
+      <div class="foto-item" style="cursor:pointer;" onclick="openLightbox(1)">
+        <img src="galerie-2.jpg" alt="RD Houbařská pohled z boku" loading="lazy" />
+        <div class="foto-overlay"><span>Pohled z boku</span></div>
       </div>
-      <div class="foto-item">
-        <img src="galerie-3.jpg" alt="RD Houbařská exteriér" loading="lazy" />
+      <div class="foto-item" style="cursor:pointer;" onclick="openLightbox(2)">
+        <img src="galerie-3.jpg" alt="RD Houbařská uliční pohled" loading="lazy" />
+        <div class="foto-overlay"><span>Uliční pohled</span></div>
       </div>
-      <div class="foto-item">
-        <img src="galerie-4.jpg" alt="RD Houbařská uliční pohled" loading="lazy" />
+      <div class="foto-item" style="cursor:pointer;" onclick="openLightbox(3)">
+        <img src="io07-exterior.jpg" alt="Exteriér domu" loading="lazy" />
+        <div class="foto-overlay"><span>Exteriér</span></div>
       </div>
-      <div class="foto-item">
-        <img src="galerie-5.jpg" alt="RD Houbařská celkový pohled" loading="lazy" />
+      <div class="foto-item" style="cursor:pointer;" onclick="openLightbox(4)">
+        <img src="io07-zahrada.jpg" alt="Terasa a zahrada" loading="lazy" />
+        <div class="foto-overlay"><span>Terasa & zahrada</span></div>
       </div>
+
+      <div class="foto-item" style="cursor:pointer;" onclick="openLightbox(5)">
+        <img src="galerie-4.jpg" alt="RD Houbařská jarní pohled" loading="lazy" />
+        <div class="foto-overlay"><span>Jarní pohled</span></div>
+      </div>
+      <div class="foto-item" style="cursor:pointer;" onclick="openLightbox(6)">
+        <img src="io07-terasa.jpg" alt="Terasa s výhledem" loading="lazy" />
+        <div class="foto-overlay"><span>Terasa</span></div>
+      </div>
+      <div class="foto-item" style="cursor:pointer;" onclick="openLightbox(7)">
+        <img src="io07-vyhled.jpg" alt="Výhled z terasy" loading="lazy" />
+        <div class="foto-overlay"><span>Výhled z terasy</span></div>
+      </div>
+      <div class="foto-item" style="cursor:pointer;" onclick="openLightbox(8)">
+        <img src="io07-interier.jpg" alt="Interiér — velká okna" loading="lazy" />
+        <div class="foto-overlay"><span>Interiér</span></div>
+      </div>
+      <div class="foto-item" style="cursor:pointer;" onclick="openLightbox(9)">
+        <img src="io07-zahrada2.jpg" alt="Zahrada" loading="lazy" />
+        <div class="foto-overlay"><span>Zahrada</span></div>
+      </div>
+
     </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.92); z-index:999; align-items:center; justify-content:center; flex-direction:column;">
+      <button onclick="closeLightbox()" style="position:absolute; top:20px; right:24px; background:none; border:none; color:rgba(248,246,241,0.6); font-size:32px; cursor:pointer; line-height:1;">×</button>
+      <button onclick="prevPhoto()" style="position:absolute; left:20px; background:none; border:1px solid rgba(248,246,241,0.2); color:var(--white); font-size:24px; cursor:pointer; width:48px; height:48px; border-radius:2px;">‹</button>
+      <button onclick="nextPhoto()" style="position:absolute; right:20px; background:none; border:1px solid rgba(248,246,241,0.2); color:var(--white); font-size:24px; cursor:pointer; width:48px; height:48px; border-radius:2px;">›</button>
+      <img id="lightbox-img" src="" style="max-height:85vh; max-width:90vw; object-fit:contain; border-radius:2px;" />
+      <div id="lightbox-caption" style="color:rgba(248,246,241,0.5); font-size:12px; letter-spacing:2px; text-transform:uppercase; margin-top:16px;"></div>
+      <div id="lightbox-counter" style="color:rgba(248,246,241,0.3); font-size:11px; margin-top:6px;"></div>
+    </div>
+
   </section>
 
   <!-- LOKALITA -->
@@ -1512,6 +1571,59 @@
       hamburger.classList.remove('open');
       mobileMenu.classList.remove('open');
     }
+
+    // Lightbox
+    const photos = [
+      { src: 'galerie-1.jpg', caption: 'Letecký pohled' },
+      { src: 'galerie-2.jpg', caption: 'Pohled z boku' },
+      { src: 'galerie-3.jpg', caption: 'Uliční pohled' },
+      { src: 'io07-exterior.jpg', caption: 'Exteriér' },
+      { src: 'io07-zahrada.jpg', caption: 'Terasa a zahrada' },
+      { src: 'galerie-4.jpg', caption: 'Jarní pohled' },
+      { src: 'io07-terasa.jpg', caption: 'Terasa' },
+      { src: 'io07-vyhled.jpg', caption: 'Výhled z terasy' },
+      { src: 'io07-interier.jpg', caption: 'Interiér' },
+      { src: 'io07-zahrada2.jpg', caption: 'Zahrada' },
+    ];
+    let currentPhoto = 0;
+
+    function openLightbox(index) {
+      currentPhoto = index;
+      updateLightbox();
+      const lb = document.getElementById('lightbox');
+      lb.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      const p = photos[currentPhoto];
+      document.getElementById('lightbox-img').src = p.src;
+      document.getElementById('lightbox-caption').textContent = p.caption;
+      document.getElementById('lightbox-counter').textContent = (currentPhoto + 1) + ' / ' + photos.length;
+    }
+
+    function nextPhoto() {
+      currentPhoto = (currentPhoto + 1) % photos.length;
+      updateLightbox();
+    }
+
+    function prevPhoto() {
+      currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
+      updateLightbox();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (document.getElementById('lightbox').style.display === 'flex') {
+        if (e.key === 'ArrowRight') nextPhoto();
+        if (e.key === 'ArrowLeft') prevPhoto();
+        if (e.key === 'Escape') closeLightbox();
+      }
+    });
 
     // Scroll animace
     const observer = new IntersectionObserver((entries) => {
