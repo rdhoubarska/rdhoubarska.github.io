@@ -1081,7 +1081,7 @@
   <section id="nabidka" class="section" style="background: var(--black);">
     <p class="section-eyebrow" style="color: var(--yellow);">Nabídka domů</p>
     <h2 class="section-title section-title-light">Vyberte si<br>svůj dům</h2>
-    <p style="font-size:14px; color:rgba(248,246,241,0.35); margin-bottom:40px; letter-spacing:0.5px;">Trojpodlažní · 5+kk · 192 m² · Pozemek 220–548 m²</p>
+    <p style="font-size:14px; color:rgba(248,246,241,0.35); margin-bottom:40px; letter-spacing:0.5px;">Trojpodlažní · 5+kk · 192 m² · Pozemek 220–548 m² · Klikněte na dům pro detail</p>
 
     <div id="domy-grid" style="display:grid; grid-template-columns: repeat(4,1fr); gap:12px;">
 
@@ -1122,39 +1122,37 @@
         <div class="dum-specs">Objekt IO 06 · Trojpodlažní</div>
       </div>
       <!-- IO 07 -->
-      <div class="dum-card fade-up" style="border-color:rgba(245,200,0,0.3);">
+      <div class="dum-card dum-card-available fade-up" style="border-color:rgba(245,200,0,0.3); cursor:pointer;" onclick="showDetail(7, this)">
         <div class="dum-tag">K dispozici</div>
         <div class="dum-name">Rodinný dům</div>
         <div style="font-size:11px;color:rgba(248,246,241,0.3);letter-spacing:2px;margin-bottom:10px;">OBJEKT IO 07</div>
         <div class="dum-specs">Trojpodlažní · 5+kk · 192 m²<br>Pozemek 226 m²</div>
         <div class="dum-divider"></div>
-        <a href="#kontakt" style="display:inline-block; background:var(--yellow); color:var(--black); font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; padding:10px 20px; border-radius:2px; text-decoration:none;">Zjistit cenu →</a>
+        <span style="font-size:11px;color:var(--yellow);letter-spacing:1px;">Detail →</span>
       </div>
       <!-- IO 08 -->
-      <div class="dum-card fade-up" style="border-color:rgba(245,200,0,0.3);">
+      <div class="dum-card dum-card-available fade-up" style="border-color:rgba(245,200,0,0.3); cursor:pointer;" onclick="showDetail(8, this)">
         <div class="dum-tag">K dispozici</div>
         <div class="dum-name">Rodinný dům</div>
         <div style="font-size:11px;color:rgba(248,246,241,0.3);letter-spacing:2px;margin-bottom:10px;">OBJEKT IO 08</div>
         <div class="dum-specs">Trojpodlažní · 5+kk · 192 m²<br>Pozemek 223 m²</div>
         <div class="dum-divider"></div>
-        <a href="#kontakt" style="display:inline-block; background:var(--yellow); color:var(--black); font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; padding:10px 20px; border-radius:2px; text-decoration:none;">Zjistit cenu →</a>
+        <span style="font-size:11px;color:var(--yellow);letter-spacing:1px;">Detail →</span>
       </div>
       <!-- IO 09 -->
-      <div class="dum-card fade-up" style="border-color:rgba(245,200,0,0.3);">
+      <div class="dum-card dum-card-available fade-up" style="border-color:rgba(245,200,0,0.3); cursor:pointer;" onclick="showDetail(9, this)">
         <div class="dum-tag">K dispozici</div>
         <div class="dum-name">Rodinný dům</div>
         <div style="font-size:11px;color:rgba(248,246,241,0.3);letter-spacing:2px;margin-bottom:10px;">OBJEKT IO 09</div>
         <div class="dum-specs">Trojpodlažní · 5+kk · 192 m²<br>Pozemek 221 m²</div>
         <div class="dum-divider"></div>
-        <a href="#kontakt" style="display:inline-block; background:var(--yellow); color:var(--black); font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; padding:10px 20px; border-radius:2px; text-decoration:none;">Zjistit cenu →</a>
+        <span style="font-size:11px;color:var(--yellow);letter-spacing:1px;">Detail →</span>
       </div>
       <!-- IO 10 -->
       <div class="dum-card" style="opacity:0.5;">
         <div class="dum-tag dum-tag-reserved">V jednání</div>
         <div class="dum-name">Rodinný dům</div>
         <div class="dum-specs">Objekt IO 10 · Trojpodlažní</div>
-        <div class="dum-divider"></div>
-        <div class="dum-price" style="color:rgba(248,246,241,0.3);">Rezervováno</div>
       </div>
       <!-- IO 11 -->
       <div class="dum-card" style="opacity:0.4;">
@@ -1169,42 +1167,141 @@
         <div class="dum-specs">Objekt IO 12 · Trojpodlažní</div>
       </div>
       <!-- IO 13 -->
-      <div class="dum-card fade-up" style="border-color:rgba(245,200,0,0.3);">
+      <div class="dum-card dum-card-available fade-up" style="border-color:rgba(245,200,0,0.3); cursor:pointer;" onclick="showDetail(13, this)">
         <div class="dum-tag">K dispozici</div>
         <div class="dum-name">Rodinný dům</div>
         <div style="font-size:11px;color:rgba(248,246,241,0.3);letter-spacing:2px;margin-bottom:10px;">OBJEKT IO 13</div>
         <div class="dum-specs">Trojpodlažní · 5+kk · 192 m²<br>Pozemek 303 m²</div>
         <div class="dum-divider"></div>
-        <a href="#kontakt" style="display:inline-block; background:var(--yellow); color:var(--black); font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; padding:10px 20px; border-radius:2px; text-decoration:none;">Zjistit cenu →</a>
+        <span style="font-size:11px;color:var(--yellow);letter-spacing:1px;">Detail →</span>
       </div>
       <!-- IO 14 -->
-      <div class="dum-card fade-up" style="border-color:rgba(245,200,0,0.3);">
+      <div class="dum-card dum-card-available fade-up" style="border-color:rgba(245,200,0,0.3); cursor:pointer;" onclick="showDetail(14, this)">
         <div class="dum-tag">K dispozici</div>
         <div class="dum-name">Rodinný dům</div>
         <div style="font-size:11px;color:rgba(248,246,241,0.3);letter-spacing:2px;margin-bottom:10px;">OBJEKT IO 14</div>
         <div class="dum-specs">Trojpodlažní · 5+kk · 192 m²<br>Pozemek 296 m²</div>
         <div class="dum-divider"></div>
-        <a href="#kontakt" style="display:inline-block; background:var(--yellow); color:var(--black); font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; padding:10px 20px; border-radius:2px; text-decoration:none;">Zjistit cenu →</a>
+        <span style="font-size:11px;color:var(--yellow);letter-spacing:1px;">Detail →</span>
       </div>
       <!-- IO 15 -->
-      <div class="dum-card fade-up" style="border-color:rgba(245,200,0,0.3);">
+      <div class="dum-card dum-card-available fade-up" style="border-color:rgba(245,200,0,0.3); cursor:pointer;" onclick="showDetail(15, this)">
         <div class="dum-tag">K dispozici</div>
         <div class="dum-name">Rodinný dům</div>
         <div style="font-size:11px;color:rgba(248,246,241,0.3);letter-spacing:2px;margin-bottom:10px;">OBJEKT IO 15</div>
         <div class="dum-specs">Trojpodlažní · 5+kk · 192 m²<br>Pozemek 297 m²</div>
         <div class="dum-divider"></div>
-        <a href="#kontakt" style="display:inline-block; background:var(--yellow); color:var(--black); font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; padding:10px 20px; border-radius:2px; text-decoration:none;">Zjistit cenu →</a>
+        <span style="font-size:11px;color:var(--yellow);letter-spacing:1px;">Detail →</span>
       </div>
       <!-- IO 16 -->
-      <div class="dum-card fade-up" style="border-color:rgba(245,200,0,0.3);">
+      <div class="dum-card dum-card-available fade-up" style="border-color:rgba(245,200,0,0.3); cursor:pointer;" onclick="showDetail(16, this)">
         <div class="dum-tag">K dispozici</div>
         <div class="dum-name">Rodinný dům</div>
         <div style="font-size:11px;color:rgba(248,246,241,0.3);letter-spacing:2px;margin-bottom:10px;">OBJEKT IO 16</div>
         <div class="dum-specs">Trojpodlažní · 5+kk · 192 m²<br>Pozemek 548 m²</div>
         <div class="dum-divider"></div>
-        <a href="#kontakt" style="display:inline-block; background:var(--yellow); color:var(--black); font-size:11px; font-weight:500; letter-spacing:2px; text-transform:uppercase; padding:10px 20px; border-radius:2px; text-decoration:none;">Zjistit cenu →</a>
+        <span style="font-size:11px;color:var(--yellow);letter-spacing:1px;">Detail →</span>
       </div>
 
+    </div>
+
+    <!-- DETAIL PANEL -->
+    <div id="detail-panel" style="display:none; margin-top:24px; background:rgba(245,200,0,0.04); border:1px solid rgba(245,200,0,0.25); border-radius:4px; padding:32px;">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid rgba(248,246,241,0.08); flex-wrap:wrap; gap:12px;">
+        <div>
+          <div id="dp-title" style="font-family:'Bebas Neue',sans-serif; font-size:36px; color:var(--white); letter-spacing:1px;"></div>
+          <div style="font-size:11px; color:rgba(245,200,0,0.7); letter-spacing:3px; text-transform:uppercase; margin-top:4px;">Trojpodlažní · 5+kk · Brno-Líšeň</div>
+        </div>
+        <div style="display:flex; gap:12px; align-items:center;">
+          <div style="display:inline-flex; align-items:center; gap:10px; background:rgba(245,200,0,0.1); border:1px solid rgba(245,200,0,0.3); border-radius:2px; padding:8px 16px;">
+            <span style="font-family:'Bebas Neue',sans-serif; font-size:32px; color:var(--yellow); line-height:1;">B</span>
+            <div>
+              <div style="font-size:12px; color:rgba(248,246,241,0.8); font-weight:500;">Velmi úsporná</div>
+              <div style="font-size:10px; color:rgba(248,246,241,0.4); letter-spacing:1px;">Třída ENB</div>
+            </div>
+          </div>
+          <button onclick="closeDetail()" style="background:rgba(248,246,241,0.08); border:1px solid rgba(248,246,241,0.15); color:rgba(248,246,241,0.5); font-size:18px; width:36px; height:36px; border-radius:2px; cursor:pointer; line-height:1;">×</button>
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-bottom:24px;">
+        <div>
+          <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(245,200,0,0.6); margin-bottom:12px;">Základní parametry</div>
+          <div style="display:flex; flex-direction:column; gap:0;">
+            <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(248,246,241,0.06);">
+              <span style="font-size:13px; color:rgba(248,246,241,0.4);">Užitná plocha</span>
+              <span style="font-size:13px; color:rgba(248,246,241,0.85); font-weight:500;">192 m²</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(248,246,241,0.06);">
+              <span style="font-size:13px; color:rgba(248,246,241,0.4);">Pozemek</span>
+              <span id="dp-pozemek" style="font-size:13px; color:rgba(248,246,241,0.85); font-weight:500;"></span>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(248,246,241,0.06);">
+              <span style="font-size:13px; color:rgba(248,246,241,0.4);">Dispozice</span>
+              <span style="font-size:13px; color:rgba(248,246,241,0.85); font-weight:500;">5+kk</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(248,246,241,0.06);">
+              <span style="font-size:13px; color:rgba(248,246,241,0.4);">Podlaží</span>
+              <span style="font-size:13px; color:rgba(248,246,241,0.85); font-weight:500;">3 (PP + NP + 2NP)</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding:8px 0;">
+              <span style="font-size:13px; color:rgba(248,246,241,0.4);">Garáž</span>
+              <span style="font-size:13px; color:rgba(248,246,241,0.85); font-weight:500;">20,80 m²</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(245,200,0,0.6); margin-bottom:12px;">Technologie</div>
+          <div style="display:flex; flex-direction:column; gap:0;">
+            <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(248,246,241,0.06);">
+              <span style="font-size:13px; color:rgba(248,246,241,0.4);">Vytápění</span>
+              <span style="font-size:13px; color:rgba(248,246,241,0.85); font-weight:500;">Tepelné čerpadlo</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(248,246,241,0.06);">
+              <span style="font-size:13px; color:rgba(248,246,241,0.4);">Podlahy</span>
+              <span style="font-size:13px; color:rgba(248,246,241,0.85); font-weight:500;">Podlahové topení</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(248,246,241,0.06);">
+              <span style="font-size:13px; color:rgba(248,246,241,0.4);">Větrání</span>
+              <span style="font-size:13px; color:rgba(248,246,241,0.85); font-weight:500;">Řízené větrání</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(248,246,241,0.06);">
+              <span style="font-size:13px; color:rgba(248,246,241,0.4);">Okna</span>
+              <span style="font-size:13px; color:rgba(248,246,241,0.85); font-weight:500;">Plastová, trojsklo</span>
+            </div>
+            <div style="display:flex; justify-content:space-between; padding:8px 0;">
+              <span style="font-size:13px; color:rgba(248,246,241,0.4);">Stav</span>
+              <span style="font-size:13px; color:var(--yellow); font-weight:500;">Hrubá stavba hotová</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:24px;">
+        <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(245,200,0,0.6); margin-bottom:12px;">Dispozice po podlažích</div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="background:rgba(248,246,241,0.04); border:1px solid rgba(248,246,241,0.08); border-radius:2px; padding:12px 16px;">
+            <div style="font-size:10px; letter-spacing:2px; color:rgba(245,200,0,0.6); text-transform:uppercase; margin-bottom:4px;">1.PP — Suterén</div>
+            <div style="font-size:13px; color:rgba(248,246,241,0.6); line-height:1.7;">Garáž 20,80 m² · Obývací pokoj + KK 43,86 m² · Koupelna · WC · Technická místnost · Zahrada</div>
+          </div>
+          <div style="background:rgba(248,246,241,0.04); border:1px solid rgba(248,246,241,0.08); border-radius:2px; padding:12px 16px;">
+            <div style="font-size:10px; letter-spacing:2px; color:rgba(245,200,0,0.6); text-transform:uppercase; margin-bottom:4px;">1.NP — Přízemí</div>
+            <div style="font-size:13px; color:rgba(248,246,241,0.6); line-height:1.7;">Chodba + schodiště 14,02 m² · Pokoj 32,62 m² · Šatna 8,12 m² · Koupelna · WC · Terasa 13,94 m²</div>
+          </div>
+          <div style="background:rgba(248,246,241,0.04); border:1px solid rgba(248,246,241,0.08); border-radius:2px; padding:12px 16px;">
+            <div style="font-size:10px; letter-spacing:2px; color:rgba(245,200,0,0.6); text-transform:uppercase; margin-bottom:4px;">2.NP — Patro</div>
+            <div style="font-size:13px; color:rgba(248,246,241,0.6); line-height:1.7;">Chodba + schodiště 13,87 m² · Pokoj 29,80 m² · Pokoj 16,20 m² · Koupelna + WC 6,71 m² · Terasa 14,84 m² · Terasa 6,50 m²</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Místo pro fotky -->
+      <div id="dp-photos" style="display:none; margin-bottom:24px;">
+        <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(245,200,0,0.6); margin-bottom:12px;">Fotografie</div>
+        <div id="dp-photos-grid" style="display:grid; grid-template-columns:repeat(3,1fr); gap:8px;"></div>
+      </div>
+
+      <a href="#kontakt" onclick="closeDetail()" style="display:block; background:var(--yellow); color:var(--black); text-align:center; font-size:12px; font-weight:500; letter-spacing:2px; text-transform:uppercase; padding:16px; border-radius:2px; text-decoration:none;">Zjistit cenu a domluvit prohlídku →</a>
     </div>
 
     <div style="margin-top:40px; padding:24px; border:1px solid rgba(245,200,0,0.3); border-radius:4px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
@@ -1356,6 +1453,41 @@
   </footer>
 
   <script>
+    // Detail panel domů
+    const domData = {
+      7:  { pozemek: '226 m²' },
+      8:  { pozemek: '223 m²' },
+      9:  { pozemek: '221 m²' },
+      13: { pozemek: '303 m²' },
+      14: { pozemek: '296 m²' },
+      15: { pozemek: '297 m²' },
+      16: { pozemek: '548 m²' }
+    };
+
+    function showDetail(id, el) {
+      document.querySelectorAll('.dum-card-available').forEach(c => {
+        c.style.borderColor = 'rgba(245,200,0,0.3)';
+        c.style.background = '';
+      });
+      el.style.borderColor = 'rgba(245,200,0,0.8)';
+      el.style.background = 'rgba(245,200,0,0.08)';
+
+      const d = domData[id];
+      document.getElementById('dp-title').textContent = 'Rodinný dům IO ' + id;
+      document.getElementById('dp-pozemek').textContent = d.pozemek;
+      const panel = document.getElementById('detail-panel');
+      panel.style.display = 'block';
+      panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function closeDetail() {
+      document.getElementById('detail-panel').style.display = 'none';
+      document.querySelectorAll('.dum-card-available').forEach(c => {
+        c.style.borderColor = 'rgba(245,200,0,0.3)';
+        c.style.background = '';
+      });
+    }
+
     // Hamburger menu
     const hamburger = document.getElementById('hamburger');
     const mobileMenu = document.getElementById('mobile-menu');
