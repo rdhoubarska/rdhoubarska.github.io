@@ -1295,6 +1295,12 @@
         </div>
       </div>
 
+      <!-- Půdorysy -->
+      <div id="dp-pudorys" style="margin-bottom:24px; display:none;">
+        <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(245,200,0,0.6); margin-bottom:12px;">Půdorysy</div>
+        <img id="dp-pudorys-img" src="" alt="Půdorys domu" style="width:100%; border-radius:4px; border:1px solid rgba(248,246,241,0.08);" />
+      </div>
+
       <!-- Místo pro fotky -->
       <div id="dp-photos" style="display:none; margin-bottom:24px;">
         <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:rgba(245,200,0,0.6); margin-bottom:12px;">Fotografie</div>
@@ -1450,12 +1456,12 @@
   <script>
     // Detail panel domů
     const domData = {
-      9:  { pozemek: '221 m²' },
-      10: { pozemek: '220 m²' },
-      13: { pozemek: '303 m²' },
-      14: { pozemek: '296 m²' },
-      15: { pozemek: '297 m²' },
-      16: { pozemek: '548 m²' }
+      9:  { pozemek: '221 m²', pudorys: 'pudorys.jpg' },
+      10: { pozemek: '220 m²', pudorys: null },
+      13: { pozemek: '303 m²', pudorys: 'pudorys.jpg' },
+      14: { pozemek: '296 m²', pudorys: null },
+      15: { pozemek: '297 m²', pudorys: 'pudorys.jpg' },
+      16: { pozemek: '548 m²', pudorys: null }
     };
 
     function showDetail(id, el) {
@@ -1469,6 +1475,17 @@
       const d = domData[id];
       document.getElementById('dp-title').textContent = 'Rodinný dům IO ' + id;
       document.getElementById('dp-pozemek').textContent = d.pozemek;
+
+      // Půdorys
+      const pudorysDiv = document.getElementById('dp-pudorys');
+      const pudorysImg = document.getElementById('dp-pudorys-img');
+      if (d.pudorys) {
+        pudorysImg.src = d.pudorys;
+        pudorysDiv.style.display = 'block';
+      } else {
+        pudorysDiv.style.display = 'none';
+      }
+
       const panel = document.getElementById('detail-panel');
       panel.style.display = 'block';
       panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
