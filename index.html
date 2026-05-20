@@ -913,12 +913,12 @@
       /* Nová galerie - inline grid */
       #galerie > div[style*="grid"] {
         grid-template-columns: 1fr 1fr !important;
-        grid-template-rows: 140px 140px 140px !important;
+        grid-template-rows: 180px 140px 140px !important;
         gap: 6px !important;
       }
 
       #galerie .foto-item[style*="grid-row"] {
-        grid-row: auto !important;
+        grid-row: 1 / 2 !important;
         grid-column: 1 / 3 !important;
         height: 180px !important;
       }
